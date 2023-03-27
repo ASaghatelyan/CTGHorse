@@ -1,0 +1,136 @@
+import {
+  View,
+  Text,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import React, {useState} from 'react';
+import {GButton, Input} from 'app/components';
+import {styles} from './style';
+import back from 'app/assets/img/back.png';
+import show from 'app/assets/img/on.png';
+import hide from 'app/assets/img/off.png';
+import axiosInstance from 'app/networking/api';
+
+export function ResetPass({navigation}) { 
+  const [pass, setPass] = useState('');
+  const [passConfirm, setPassConfirm] = useState('');
+  const [showHidePass, setShowHidePass] = useState(true);
+  const [showHidePassConfirm, setShowHidePassConfirm] = useState(true);
+  const [choosed, setChoosed] = useState('');
+  const [err, setErr] = useState('');
+
+  let handleChange = (e, name) => {
+    name(e);
+    setErr('');
+  };
+
+  let onResetPass = async () => {
+    try {
+      setLoad(true)
+      if (code) {
+        let res = await axiosInstance.post(`password/reset        `, {
+          email,
+          password: pass,
+          password_confirmation: confirmPass
+        }) 
+        props.navigation.replace("Login")
+        setConfirmPass('')
+        setPass('')
+        setLoad(false)
+      } else (
+        setLoad(false),
+        setErr('Code is not filled')) 
+    } catch (e) {
+      console.log(e, 'err');
+      setErr(e.response.data.data.error) 
+    }
+  }
+  return (
+    <KeyboardAvoidingView
+      behavior="padding"
+      style={{flex: 1, paddingHorizontal: 15}}>
+      <SafeAreaView />
+      <View style={styles.topView}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backView}>
+          <Image source={back} style={styles.back} />
+        </TouchableOpacity>
+        <Text style={styles.title}>Create new password</Text>
+      </View>
+      <ScrollView>
+        <View> 
+          <Text style={styles.subTitleText}>
+            Your new Passwor Must be Different from Previouly used password
+          </Text>
+        </View>
+        <Input
+          title="New Password" 
+          onChange={e => {
+            setChoosed('');
+            handleChange(e, setPass);
+          }}
+          value={pass}
+          inputBtn2={show}
+          inputBtn1={hide}
+          showPass={styles.showPass}
+          inputBtnView={
+            Platform.OS === 'ios'
+              ? styles.showPassBtnIOS
+              : styles.showPassBtnAndroid
+          }
+          inputBtn={showHidePass ? hide : show}
+          secure={showHidePass}
+          handleShowPass={() => setShowHidePass(!showHidePass)}
+          errStyle={
+            (choosed === 'pass' || choosed === 'notEqual') && {
+              borderWidth: 1,
+              borderColor: 'red',
+              backgroundColor: '#FFF',
+            }
+          }
+          err={(choosed === 'pass' || choosed === 'notEqual') && err}
+        />
+        <Input
+          title="Confirm New Password" 
+          onChange={e => {
+            setChoosed('');
+            handleChange(e, setPassConfirm);
+          }}
+          value={passConfirm}
+          inputBtn2={show}
+          inputBtn1={hide}
+          showPass={styles.showPass}
+          inputBtnView={
+            Platform.OS === 'ios'
+              ? styles.showPassBtnIOS
+              : styles.showPassBtnAndroid
+          }
+          inputBtn={showHidePassConfirm ? hide : show}
+          secure={showHidePassConfirm}
+          handleShowPass={() => setShowHidePassConfirm(!showHidePassConfirm)}
+          errStyle={
+            (choosed === 'Confirm password' || choosed === 'notEqual') && {
+              borderWidth: 1,
+              borderColor: 'red',
+              backgroundColor: '#FFF',
+            }
+          }
+          err={
+            (choosed === 'Confirm password' || choosed === 'notEqual') && err
+          }
+        />
+        <View style={styles.btnView}>
+          <GButton
+            btnName="Save"
+            handelMove={() => navigation.replace('PassUpdated')}
+          />
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
+  );
+}
