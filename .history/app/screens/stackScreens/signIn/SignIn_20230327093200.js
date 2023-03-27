@@ -13,7 +13,7 @@ import show from 'app/assets/img/on.png';
 import hide from 'app/assets/img/off.png';
 import axiosInstance from 'app/networking/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 export function SignIn({navigation}) {
   let dispatch = useDispatch();
