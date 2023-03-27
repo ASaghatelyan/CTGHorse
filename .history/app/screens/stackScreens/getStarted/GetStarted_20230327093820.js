@@ -63,16 +63,6 @@ export function GetStarted({navigation}) {
           }}
         />
       </View>
-        {/* <Progress.Bar
-          progress={progres}
-          width={200}
-          indeterminate={anime}
-          color="#E9A13A"
-          animationConfig={{bounciness: 1}}
-          animationType={'spring'}
-          borderWidth={0}
-          height={3}
-        /> */}
     </ImageBackground>
   );
 }
