@@ -1,0 +1,1 @@
+export {HorsRegThird} from './HorsRegThird'

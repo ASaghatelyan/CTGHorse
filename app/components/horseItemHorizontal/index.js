@@ -1,0 +1,1 @@
+export {HorseItemHorizontal} from './HorseItemHorizontal'

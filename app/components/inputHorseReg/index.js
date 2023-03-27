@@ -1,0 +1,1 @@
+export {InputHorseReg} from './InputHorseReg'

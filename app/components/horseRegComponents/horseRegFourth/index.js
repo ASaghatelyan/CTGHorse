@@ -1,0 +1,1 @@
+export {HorseRegFourth} from './HorseRegFourth'

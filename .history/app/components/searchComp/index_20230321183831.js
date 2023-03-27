@@ -1,0 +1,1 @@
+export {SearchComp} from './SearchComp'

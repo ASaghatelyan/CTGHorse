@@ -1,0 +1,1 @@
+export {FilterDetiles} from './FilterDetiles'

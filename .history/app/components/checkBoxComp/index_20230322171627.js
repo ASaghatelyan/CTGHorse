@@ -1,0 +1,1 @@
+export {CheckBoxComp} from './CheckBoxComp'

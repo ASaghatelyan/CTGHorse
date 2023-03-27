@@ -1,0 +1,1 @@
+export {BottomBtn} from './BottomBtn';
