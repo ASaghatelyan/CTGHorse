@@ -1,0 +1,1 @@
+export {UpdatePassModal} from './UpdatePassModal'

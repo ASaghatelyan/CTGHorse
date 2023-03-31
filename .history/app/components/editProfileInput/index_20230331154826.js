@@ -1,0 +1,1 @@
+export {EditProfileInput} from './EditProfileInput'
