@@ -1,0 +1,1 @@
+export {GeneralModal} from './OhNoModal'
