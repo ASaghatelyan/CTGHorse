@@ -1,0 +1,57 @@
+import {
+    View,
+    Text,
+    Image,
+    TouchableOpacity,
+    ScrollView,
+    SafeAreaView,
+    Alert,
+  } from 'react-native';
+  import React, {useRef, useState} from 'react';
+  import user from 'app/assets/img/userImg.jpeg';
+  import edit from 'app/assets/img/editp.png';
+  import {styles} from './style';
+  import AsyncStorage from '@react-native-async-storage/async-storage';
+  import StarRating from 'react-native-star-rating';
+  import {
+    EditProfileInput,
+    GButton,
+    GeneralModal,
+    HeaderNavi,
+  } from 'app/components';
+export function MyFavorites() {
+  return (
+    <View style={styles.content}>
+      <SafeAreaView />
+      <HeaderNavi
+        leftBtn={'Edit Profile'}
+        leftOnPress={() => navigation.goBack()}
+      />
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.editImg}>
+          <TouchableOpacity style={styles.editView}>
+            <Image source={user} style={styles.userImg} />
+            <Image source={edit} style={styles.editIc} />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <EditProfileInput
+            title="Name"
+            onChange={t => {
+              let da =name
+              console.log(name,t);
+              setName(t)
+                setHasUnsavedChanges(true)
+            }}
+            value={name}
+          />
+   
+          
+      </ScrollView>
+   
+      
+    </View>
+  );
+}
