@@ -1,0 +1,46 @@
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  KeyboardAvoidingView,
+  Button,
+  TextInput,
+} from 'react-native';
+import React, {useState} from 'react';
+import ava from 'app/assets/img/ava.png';
+import {styles} from './style';
+import {DropDownItem} from 'app/components/dropDownItem';
+import {
+  breed,
+  sex,
+  height,
+  weight,
+  color,
+  price,
+  training,
+  discipline,
+  condition,
+} from 'app/constant/filterData';
+import {useDispatch, useSelector} from 'react-redux';
+import { InputHorseReg } from 'app/components/inputHorseReg';
+
+export function HorsRegThird(props) {
+  const [regNum, setRegNum] = useState(new Date().getTime());
+  const [breeds, setBreeds] = useState('');
+  const [sexH, setSexH] = useState('');
+  const [heightH, setHeightH] = useState('');
+  const [weightH, setWeightH] = useState('');
+  const [colorH, setColorH] = useState('');
+  const [trainingH, setTrianingH] = useState('');
+  const [priceH, setPriceH] = useState('');
+  const [conditionH, setConditionH] = useState('');
+  const [proEarnings, setProEarnings] = useState('');
+  const [sir, setSir] = useState('');
+  const [dam, setDam] = useState('');
+  return (
+    <View style={styles.container}>
+      
+    </View>
+  );
+}
