@@ -1,0 +1,60 @@
+import {StyleSheet, Dimensions} from 'react-native';
+import {GlobalHeight, GlobalWidth} from 'app/constant/styleConstants';
+
+let width = Dimensions.get('window').width;
+let height = Dimensions.get('window').height;
+
+export const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    backgroundColor: '#F5F5F5',
+  },
+  scroll: {
+    flexGrow: 1,
+    // paddingHorizontal: GlobalWidth(15),
+justifyContent:'space-between'
+  },
+  addCard:{ 
+    width:GlobalWidth(140), 
+  },
+  text:{
+    fontFamily: 'SFProText-Regular',
+    fontSize: GlobalWidth(16),
+    lineHeight: GlobalHeight(19),
+    color: 'rgba(25, 12, 4, 0.64)', 
+    textAlign:'center',
+    width:GlobalWidth(234)
+  },
+  title: {
+    fontFamily: 'SFProText-SemiBold',
+    fontSize: GlobalWidth(24),
+    lineHeight: GlobalHeight(29),
+    color: 'rgba(25, 12, 4, 0.64)',
+    marginBottom: GlobalHeight(16), 
+    textAlign:'center',
+    width:GlobalWidth(234)
+  },
+   img:{
+    width:'100%',
+    height:GlobalHeight(387),
+    marginBottom:GlobalHeight(29)
+   },
+  btn: {
+    marginBottom: GlobalHeight(48),
+    paddingHorizontal:GlobalWidth(16)
+  },
+  closeView: {
+    position: 'absolute',
+    right: GlobalWidth(18),
+    top: GlobalHeight(10),
+    width: GlobalWidth(24),
+    height: GlobalHeight(24),
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex:1111
+  },
+  close: {
+    width: GlobalWidth(16),
+    height: GlobalWidth(16),
+  },
+});

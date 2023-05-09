@@ -1,0 +1,1 @@
+export {PayedComplite} from './PayedComplite'
