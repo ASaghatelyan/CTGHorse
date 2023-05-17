@@ -6,7 +6,6 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
-  Linking,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import user from 'app/assets/img/noimg.png';
@@ -56,9 +55,9 @@ export function AccountInfo({navigation}) {
     try {
       setLoad(true);
       let spents = await axiosInstance.get(`/spent`);
-      let earns = await axiosInstance.get(`/earning`);
-      console.log(earns.data, spents.data);
-      setEarnsSpent({e: earns.data / 100, s: spents.data / 100});
+      let earns = await axiosInstance.get(`/earning`); 
+      console.log(earns.data,spents.data);
+      setEarnsSpent({e: earns.data/100, s: spents.data/100});
       let res = await axiosInstance.get(`/last-transactins`);
       setLastTransaction(res.data);
       setLoad(false);
@@ -130,16 +129,6 @@ export function AccountInfo({navigation}) {
     );
   };
 
-  const handleClick = link => {
-    Linking.canOpenURL(link).then(supported => {
-      if (supported) {
-        Linking.openURL(link);
-      } else {
-        console.log("Don't know how to open URI: " + link);
-      }
-    });
-  };
-  
   return (
     <View style={styles.content}>
       <SafeAreaView />
@@ -206,9 +195,7 @@ export function AccountInfo({navigation}) {
         <View style={styles.transactionView}>
           {lastTransaction.map((item, index) => {
             return (
-              <TouchableOpacity
-                style={styles.transactionItem}
-                onPress={() => handleClick(item.receipt_url)}>
+              <TouchableOpacity style={styles.transactionItem} onPress={()=>console.log(item,'ddddd')}>
                 <View>
                   <Text style={styles.dateText}>
                     {moment(item.created_at).format('DD/MM/YYYY')}

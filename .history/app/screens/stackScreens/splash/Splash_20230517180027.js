@@ -62,7 +62,7 @@ export function Splash({navigation}) {
 
   useEffect(() => {
     Animated.timing(width, {
-      toValue: GlobalWidth(205),
+      toValue: GlobalWidth(185),
       duration: 1500,
       useNativeDriver: false,
     }).start();

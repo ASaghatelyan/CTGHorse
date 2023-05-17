@@ -94,9 +94,9 @@ export function PaymentMethod({navigation, route}) {
           customStyle={styles.btn}
           handelMove={() => {
           if(method.length>0){
-            setModalVisible(!modalVisible)
-
+            
           }          
+            // setModalVisible(!modalVisible)
           }}
         />
       </ScrollView>

@@ -62,12 +62,12 @@ export function Splash({navigation}) {
 
   useEffect(() => {
     Animated.timing(width, {
-      toValue: GlobalWidth(205),
+      toValue: GlobalWidth(145),
       duration: 1500,
       useNativeDriver: false,
     }).start();
     Animated.timing(height, {
-      toValue: GlobalHeight(182),
+      toValue: GlobalHeight(122),
       duration: 1500,
       useNativeDriver: false,
     }).start(navi);
@@ -83,7 +83,7 @@ export function Splash({navigation}) {
       />
       {/* <Image source={Logo} style={styles.logo} /> */}
       <Animated.Image
-        source={NewLogo}
+        source={Logo}
         style={{
           width: width,
           height: height,

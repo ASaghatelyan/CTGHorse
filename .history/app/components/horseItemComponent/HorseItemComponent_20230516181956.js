@@ -56,7 +56,7 @@ export const HorseItemComponent = ({
       console.log(error.response.data.message);
     }
   };
- 
+   console.log(item);
   return (
     <DropShadow
       style={{

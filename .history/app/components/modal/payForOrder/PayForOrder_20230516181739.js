@@ -68,7 +68,7 @@ export function PayForOrder({
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Registration number</Text>
-              <Text style={styles.rightText}>{horse?.registration_number}</Text>
+              <Text style={styles.rightText}>{horse.registration_number}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Price</Text>

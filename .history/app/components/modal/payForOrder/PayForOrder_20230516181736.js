@@ -64,11 +64,11 @@ export function PayForOrder({
           <View style={{width: '100%'}}>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Horse name</Text>
-              <Text style={styles.rightText}>{horse?.name}</Text>
+              <Text style={styles.rightText}>{horse.name}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Registration number</Text>
-              <Text style={styles.rightText}>{horse?.registration_number}</Text>
+              <Text style={styles.rightText}>{horse.registration_number}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Price</Text>

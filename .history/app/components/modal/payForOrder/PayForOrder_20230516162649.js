@@ -25,15 +25,15 @@ export function PayForOrder({
   let taxPrice = Number((horse.price * 10) / 100) + Number(horse.price);
   let PayForHorse = async () => {
     try {
-      // console.log(horse.id,data.db_id,taxPrice);
-      let res = await axiosInstance.post(`/payment`, {
-        horse_id: horse.id,
-        amount: taxPrice * 100,
-        db_id: data.db_id,
-      });
+      console.log(horse.id,data.db_id,taxPrice);
+      // let res = await axiosInstance.post(`/payment`, {
+      //   horse_id: horse.id,
+      //   amount: taxPrice * 100,
+      //   db_id: data.db_id,
+      // });
        
-      onClose();
-      navigation.replace('PayedComplite');
+      // onClose();
+      // navigation.replace('PayedComplite');
     } catch (e) {
       console.log(e, 'dfv');
     }
@@ -57,28 +57,28 @@ export function PayForOrder({
           showsVerticalScrollIndicator={false}>
           <Image
             source={{
-              uri: horse?.medias[0].url,
+              uri: horse.medias[0].url,
             }}
             style={styles.horseIc}
           />
           <View style={{width: '100%'}}>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Horse name</Text>
-              <Text style={styles.rightText}>{horse?.name}</Text>
+              <Text style={styles.rightText}>{horse.name}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Registration number</Text>
-              <Text style={styles.rightText}>{horse?.registration_number}</Text>
+              <Text style={styles.rightText}>{horse.registration_number}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.leftText}>Price</Text>
-              <Text style={styles.rightText}>${horse?.price}</Text>
+              <Text style={styles.rightText}>${horse.price}</Text>
             </View>
           </View>
           <View style={styles.totlaPayment}>
             <View style={styles.infoItemTotal}>
               <Text style={styles.leftTextTotal}>CTG Horse Fee</Text>
-              <Text style={styles.rightTextTotal}>${horse?.price}</Text>
+              <Text style={styles.rightTextTotal}>${horse.price}</Text>
             </View>
             <View style={styles.infoItemTotal}>
               <Text style={styles.leftTextTotal}>Horse Santuary Fee</Text>

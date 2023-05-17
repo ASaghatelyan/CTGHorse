@@ -1,7 +1,7 @@
 import {View, StatusBar, Image, Animated} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Logo from 'app/assets/img/logo.png';
-import NewLogo from 'app/assets/img/newlogo.png';
+import NewLogo from 'app/assets/img/newLogo.png';
 import {styles} from './style';
 import {GlobalWidth, GlobalHeight} from '../../../constant/styleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -62,12 +62,12 @@ export function Splash({navigation}) {
 
   useEffect(() => {
     Animated.timing(width, {
-      toValue: GlobalWidth(205),
+      toValue: GlobalWidth(145),
       duration: 1500,
       useNativeDriver: false,
     }).start();
     Animated.timing(height, {
-      toValue: GlobalHeight(182),
+      toValue: GlobalHeight(122),
       duration: 1500,
       useNativeDriver: false,
     }).start(navi);
@@ -83,7 +83,7 @@ export function Splash({navigation}) {
       />
       {/* <Image source={Logo} style={styles.logo} /> */}
       <Animated.Image
-        source={NewLogo}
+        source={Logo}
         style={{
           width: width,
           height: height,

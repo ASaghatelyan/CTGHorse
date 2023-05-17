@@ -129,8 +129,8 @@ export function AccountInfo({navigation}) {
       </Swipeable>
     );
   };
-
-  const handleClick = link => {
+  
+  let handleClick = link => {
     Linking.canOpenURL(link).then(supported => {
       if (supported) {
         Linking.openURL(link);
@@ -139,7 +139,6 @@ export function AccountInfo({navigation}) {
       }
     });
   };
-  
   return (
     <View style={styles.content}>
       <SafeAreaView />

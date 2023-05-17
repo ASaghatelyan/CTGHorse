@@ -48,7 +48,7 @@ export function PaymentMethod({navigation, route}) {
       console.log(error.response);
     }
   };
-
+console.log(route.params);
   return (
     <View style={styles.content}>
       <SafeAreaView />
@@ -92,22 +92,17 @@ export function PaymentMethod({navigation, route}) {
         <GButton
           btnName="Add Payment Method"
           customStyle={styles.btn}
-          handelMove={() => {
-          if(method.length>0){
-            setModalVisible(!modalVisible)
-
-          }          
-          }}
+          handelMove={() => setModalVisible(!modalVisible)}
         />
       </ScrollView>
-      <PayForOrder
+      {/* <PayForOrder
         isVisible={modalVisible}
         onClose={() => setModalVisible(!modalVisible)}
         navigation={navigation}
         data={method[choosed]}
         horse={route.params.horse}
         complite={() => setPayed(true)}
-      />
+      /> */}
       <AddNewCard
         isVisible={addCardModal}
         onClose={() => setAddCardModal(!addCardModal)}

@@ -6,7 +6,6 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
-  Linking,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import user from 'app/assets/img/noimg.png';
@@ -129,17 +128,15 @@ export function AccountInfo({navigation}) {
       </Swipeable>
     );
   };
-
-  const handleClick = link => {
-    Linking.canOpenURL(link).then(supported => {
+  let handleClick = (link) => {
+    Linking.canOpenURL(this.props.url).then(supported => {
       if (supported) {
-        Linking.openURL(link);
+        Linking.openURL(this.props.url);
       } else {
-        console.log("Don't know how to open URI: " + link);
+        console.log("Don't know how to open URI: " + this.props.url);
       }
     });
   };
-  
   return (
     <View style={styles.content}>
       <SafeAreaView />
@@ -208,7 +205,7 @@ export function AccountInfo({navigation}) {
             return (
               <TouchableOpacity
                 style={styles.transactionItem}
-                onPress={() => handleClick(item.receipt_url)}>
+                onPress={() => console.log(item.receipt_url, 'ddddd')}>
                 <View>
                   <Text style={styles.dateText}>
                     {moment(item.created_at).format('DD/MM/YYYY')}

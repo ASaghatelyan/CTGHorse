@@ -139,7 +139,6 @@ export function AccountInfo({navigation}) {
       }
     });
   };
-  
   return (
     <View style={styles.content}>
       <SafeAreaView />
