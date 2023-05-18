@@ -21,8 +21,7 @@ import {PaymentIcon} from 'react-native-payment-icons';
 import {SwipeListView} from 'react-native-swipe-list-view';
 import {Swipeable} from 'react-native-gesture-handler';
 import deleteChat from 'app/assets/img/deletChat.png';
-import dfaultIc from 'app/assets/img/def.png';
-import unDef from 'app/assets/img/undef.png';
+import dfaultIc from 'app/assets/img/default.png';
 import moment from 'moment';
 
 export function AccountInfo({navigation}) {
@@ -125,12 +124,7 @@ export function AccountInfo({navigation}) {
             closeRow();
             setAsDefault(item.db_id);
           }}>
-          {item.default === 1 ? (
-            <Image source={dfaultIc} style={styles.dfaultIc} />
-          ) : (
-            <Image source={unDef} style={styles.dfaultIc} />
-          )}
-
+          <Image source={dfaultIc} style={styles.dfaultIc} />
           {/* <Text style={styles.dateText}>Default</Text> */}
         </TouchableOpacity>
       );

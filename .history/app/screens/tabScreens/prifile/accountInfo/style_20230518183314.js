@@ -280,6 +280,6 @@ export const styles = StyleSheet.create({
     width: GlobalWidth(44),
     height: GlobalHeight(44),
     resizeMode:'contain',
-    tintColor:'#E9A13A'
+    tintColor:''
   },
 });

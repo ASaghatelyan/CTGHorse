@@ -260,7 +260,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: GlobalWidth(73),
-    // backgroundColor: '#E9A13A',
+    backgroundColor: '#E9A13A',
     height: GlobalHeight(48),
     marginTop: GlobalHeight(21),
     shadowColor: '#000',
@@ -278,8 +278,7 @@ export const styles = StyleSheet.create({
   },
   dfaultIc: {
     width: GlobalWidth(44),
-    height: GlobalHeight(44),
-    resizeMode:'contain',
-    tintColor:'#E9A13A'
+    height: GlobalHeight(24),
+    resizeMode:'contain'
   },
 });

@@ -279,7 +279,6 @@ export const styles = StyleSheet.create({
   dfaultIc: {
     width: GlobalWidth(44),
     height: GlobalHeight(44),
-    resizeMode:'contain',
-    tintColor:'#E9A13A'
+    resizeMode:'contain'
   },
 });

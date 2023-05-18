@@ -126,11 +126,9 @@ export function AccountInfo({navigation}) {
             setAsDefault(item.db_id);
           }}>
           {item.default === 1 ? (
-            <Image source={dfaultIc} style={styles.dfaultIc} />
-          ) : (
-            <Image source={unDef} style={styles.dfaultIc} />
-          )}
-
+            <Image source={dfaultIc} style={styles.dfaultIc} /> 
+            )}
+       
           {/* <Text style={styles.dateText}>Default</Text> */}
         </TouchableOpacity>
       );
