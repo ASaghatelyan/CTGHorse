@@ -1,0 +1,1 @@
+export {HorseItemComponent} from './HorseItemComponent';
