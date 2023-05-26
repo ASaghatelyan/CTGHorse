@@ -49,10 +49,6 @@ export function AddNewCard({isVisible, getDate, onClose}) {
           });
           getDate();
           onClose();
-          console.log({
-            source: cardData.id,
-            email: userHorseInfo.email,
-          });
         } else {
           setErr(cardData?.error?.message);
         }

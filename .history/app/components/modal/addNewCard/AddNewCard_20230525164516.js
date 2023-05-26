@@ -17,14 +17,16 @@ import close from 'app/assets/img/close.png';
 import Stripe from 'react-native-stripe-api';
 import axiosInstance from 'app/networking/api';
 import {useSelector} from 'react-redux';
-import {CreditCardInput} from 'react-native-credit-card-input';
+import {
+  CreditCardInput, 
+} from 'react-native-credit-card-input';
 
 export function AddNewCard({isVisible, getDate, onClose}) {
-  let userHorseInfo = useSelector(state => state.userInfo);
-  const [load, setLoad] = useState(false);
+  let userHorseInfo = useSelector(state => state.userInfo); 
+  const [load, setLoad] = useState(false); 
   const [err, setErr] = useState('');
   const [data, setData] = useState([]);
-
+ 
   let addCard = async () => {
     try {
       if (data.valid) {
@@ -42,22 +44,29 @@ export function AddNewCard({isVisible, getDate, onClose}) {
           cvc: data.values.cvc,
         };
         const cardData = await client.createToken(sendingData);
-        if (!cardData?.error) {
+        if (!cardData?.error) { 
           let ress = await axiosInstance.post(`/add-card`, {
             source: cardData.id,
             email: userHorseInfo.email,
-          });
+          }); 
           getDate();
-          onClose();
-          console.log({
-            source: cardData.id,
-            email: userHorseInfo.email,
-          });
-        } else {
+          onClose(); 
+        } else { 
           setErr(cardData?.error?.message);
         }
         setLoad(false);
-      } else if (data.length === 0) {
+      } 
+      // else if (!cardNum) {
+      //   setChoosed('Card');
+      //   setErr('Card number is not filed');
+      // } else if (!month) {
+      //   setChoosed('Month');
+      //   setErr('Month is not filed');
+      // } else if (!year) {
+      //   setChoosed('Year');
+      //   setErr('Year is not filed');
+      // } 
+      else if (data.length===0) { 
         setErr('Please complete all fields');
       }
     } catch (error) {
@@ -66,17 +75,76 @@ export function AddNewCard({isVisible, getDate, onClose}) {
     }
   };
   let _onChange = form => {
-    setErr('');
-    setData(form);
-  };
-
+    setErr('')
+    setData(form)};
+ 
   return (
     <Modal isVisible={isVisible} style={styles.modalView} avoidKeyboard>
       <View style={styles.content}>
         <TouchableOpacity style={styles.closeView} onPress={onClose}>
           <Image source={close} style={styles.close} />
         </TouchableOpacity>
-         
+        {/* <InputHorseReg
+          title="Card number"
+          placeholder="Card number"
+          value={cardNum}
+          onChange={text => {
+            setErr('');
+            setCardNum(text);
+          }}
+          colorT={{color: '#190C04'}}
+          lengthNumber={16}
+          keyType="number-pad"
+        />
+        <View style={styles.inputView}>
+          <View
+            style={{
+              flexDirection: 'row',
+              width: '45%',
+              justifyContent: 'space-between',
+            }}>
+            <InputHorseReg
+              topStyle={{width: '45%'}}
+              title="Expiry"
+              placeholder="MM "
+              value={month}
+              onChange={t => {
+                setErr('');
+                setMonth(t);
+              }}
+              colorT={{color: '#190C04'}}
+              keyType="number-pad"
+              lengthNumber={2}
+            />
+            <InputHorseReg
+              topStyle={{width: '45%'}}
+              title="Date"
+              placeholder="YY"
+              value={year}
+              onChange={t => {
+                setErr('');
+                setYear(t);
+              }}
+              colorT={{color: '#190C04'}}
+              lengthNumber={2}
+              keyType="number-pad"
+            />
+          </View>
+          <InputHorseReg
+            topStyle={{width: '45%'}}
+            title="CVC/CVV"
+            placeholder="CVC/CVV"
+            value={cvv}
+            onChange={text => {
+              setErr('');
+              setCvv(text);
+            }}
+            colorT={{color: '#190C04'}}
+            secure={true}
+            lengthNumber={3}
+            keyType="number-pad"
+          />
+        </View> */}
         <CreditCardInput onChange={_onChange} />
         {err ? (
           <View style={styles.errView}>

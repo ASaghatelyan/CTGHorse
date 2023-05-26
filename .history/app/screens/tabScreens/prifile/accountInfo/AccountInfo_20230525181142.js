@@ -99,7 +99,7 @@ export function AccountInfo({navigation}) {
   };
 
   const renderItem = ({item, index}, onClick) => {
-    const closeRow = index => {
+    const closeRow = index => { 
       if (prevOpenedRow && prevOpenedRow !== row[index]) {
         prevOpenedRow.close();
       }
@@ -206,11 +206,7 @@ export function AccountInfo({navigation}) {
             />
             <View style={styles.infoTextView}>
               <Text style={styles.infoText}>{userHorseInfo?.name}</Text>
-              <Text style={styles.infoText}>
-                {userHorseInfo?.address === 'null'
-                  ? ''
-                  : userHorseInfo?.address}
-              </Text>
+              <Text style={styles.infoText}>{userHorseInfo?.address===null ? '' :userHorseInfo?.address}</Text>
             </View>
             {/* <TouchableOpacity style={styles.statementView}>
               <Text style={styles.statementText}>View Statement</Text>

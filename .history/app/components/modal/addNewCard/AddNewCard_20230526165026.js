@@ -43,12 +43,12 @@ export function AddNewCard({isVisible, getDate, onClose}) {
         };
         const cardData = await client.createToken(sendingData);
         if (!cardData?.error) {
-          let ress = await axiosInstance.post(`/add-card`, {
-            source: cardData.id,
-            email: userHorseInfo.email,
-          });
-          getDate();
-          onClose();
+          // let ress = await axiosInstance.post(`/add-card`, {
+          //   source: cardData.id,
+          //   email: userHorseInfo.email,
+          // });
+          // getDate();
+          // onClose();
           console.log({
             source: cardData.id,
             email: userHorseInfo.email,
