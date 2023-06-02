@@ -348,8 +348,8 @@ export function HorseInfo({navigation, route}) {
         )}
         {route.params.boughten && (
           <BottomBtn
-            nameL="Cancel"
-            nameR="Accept"
+            nameL="Back"
+            nameR="Next"
             //  onChangeL={ }
             //  onChangeR={ }
             styles={styles.bottomBtn}

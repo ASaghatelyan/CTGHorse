@@ -237,7 +237,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
  bottomBtn:{
-  paddingHorizontal:GlobalWidth(16)
+  
  }
 
 });

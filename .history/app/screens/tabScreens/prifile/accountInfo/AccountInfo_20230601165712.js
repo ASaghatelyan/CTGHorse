@@ -15,7 +15,7 @@ import added from 'app/assets/img/addCard.png';
 import {styles} from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AddNewCard, HeaderNavi, LoadingModal} from 'app/components';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import axiosInstance from 'app/networking/api';
 import {PaymentIcon} from 'react-native-payment-icons';
 import {SwipeListView} from 'react-native-swipe-list-view';
@@ -26,16 +26,15 @@ import unDef from 'app/assets/img/undef.png';
 import moment from 'moment';
 import WebView from 'react-native-webview';
 
+
 export function AccountInfo({navigation}) {
   let userHorseInfo = useSelector(state => state.userInfo);
-  let dispatch = useDispatch();
   const [earnsSpent, setEarnsSpent] = useState({e: 0, s: 0});
-  const [verified, setVerified] = useState('');
   const [method, setMethod] = useState([]);
   const [addCardModal, setAddCardModal] = useState(false);
   const [load, setLoad] = useState(false);
   const [lastTransaction, setLastTransaction] = useState([]);
-
+ 
   let row = [];
   let prevOpenedRow;
 
@@ -48,7 +47,8 @@ export function AccountInfo({navigation}) {
   let getDate = async () => {
     try {
       setLoad(true);
-      let res = await axiosInstance.get(`/get-cards`); 
+      let res = await axiosInstance.get(`/get-cards`);
+      console.log(res);
       setMethod(
         res.data.sort(function (x, y) {
           return x.default == 1 ? -1 : y.default == 1 ? 1 : 0;
@@ -187,136 +187,116 @@ export function AccountInfo({navigation}) {
       }
     });
   };
-  
+
   return (
     <View style={styles.content}>
       <SafeAreaView />
-      {!verified ? (
-        <View>
-          <HeaderNavi
-            leftBtn={'Accounts'}
-            leftOnPress={() => navigation.goBack()}
-          />
-          <ScrollView
-            contentContainerStyle={styles.scroll}
-            showsVerticalScrollIndicator={false}>
-            <View style={styles.userInfo}>
-              <View style={styles.information}>
-                <Image
-                  source={
-                    userHorseInfo?.avatar ? {uri: userHorseInfo.avatar} : user
-                  }
-                  style={styles.userImg}
-                />
-                <View style={styles.infoTextView}>
-                  <Text style={styles.infoText}>{userHorseInfo?.name}</Text>
-                  <Text style={styles.infoText}>
-                    {userHorseInfo?.address === 'null'
-                      ? ''
-                      : userHorseInfo?.address}
-                  </Text>
-                </View>
-                {/* <TouchableOpacity style={styles.statementView}>
+      <HeaderNavi
+        leftBtn={'Accounts'}
+        leftOnPress={() => navigation.goBack()}
+      />
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.userInfo}>
+          <View style={styles.information}>
+            <Image
+              source={
+                userHorseInfo?.avatar ? {uri: userHorseInfo.avatar} : user
+              }
+              style={styles.userImg}
+            />
+            <View style={styles.infoTextView}>
+              <Text style={styles.infoText}>{userHorseInfo?.name}</Text>
+              <Text style={styles.infoText}>
+                {userHorseInfo?.address === 'null'
+                  ? ''
+                  : userHorseInfo?.address}
+              </Text>
+            </View>
+            {/* <TouchableOpacity style={styles.statementView}>
               <Text style={styles.statementText}>View Statement</Text>
             </TouchableOpacity> */}
-              </View>
-              <View style={styles.incomesBalance}>
-                <Text style={styles.accountText}>Incomes</Text>
-                <Text style={styles.priceText}>${earnsSpent.e}</Text>
-              </View>
-              <View style={styles.accountBalance}>
-                <Text style={styles.accountText}>Outgoing</Text>
-                <Text style={styles.priceText}>${earnsSpent.s}</Text>
-              </View>
-            </View>
-            <View>
-              <FlatList
-                style={{}}
-                contentContainerStyle={{}}
-                showsVerticalScrollIndicator={false}
-                data={method}
-                renderItem={v =>
-                  renderItem(v, () => {
-                    return v;
-                    // deletCard(v);
-                  })
-                }
-                keyExtractor={item => item.id}
-              />
-              <TouchableOpacity
-                style={styles.addTextView}
-                onPress={async () => {
-                  if (userHorseInfo.is_account_verified === 'not_verified') {
-                    let res = await axiosInstance.get(
-                      `/create-verification-link`,
-                    );
-
-                    setVerified(res.data);
-                  } else setAddCardModal(!addCardModal);
-                }}>
-                <Text style={styles.addText}>+Add new</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.rescentView}>
-              <Text style={styles.recentText}>Recent Transactions</Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('ViewAllTransactions')}>
-                <Text style={styles.viewAllText}>View all</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.transactionView}>
-              {lastTransaction.map((item, index) => {
-                return (
-                  <TouchableOpacity
-                    style={styles.transactionItem}
-                    onPress={() => handleClick(item.receipt_url)}>
-                    <View>
-                      <Text style={styles.dateText}>
-                        {moment(item.created_at).format('DD/MM/YYYY')}
-                      </Text>
-                      <Text style={styles.transactionNumText} numberOfLines={1}>
-                        UPI/2323232323/TRASANCTION
-                      </Text>
-                      <Text style={styles.transactionNumText}>
-                        {moment(item.created_at).format('dddd')}
-                      </Text>
-                    </View>
-                    <View style={styles.rightView}>
-                      <Text style={styles.transactionPrice}>
-                        ${item.amount / 100}
-                      </Text>
-                      <Image source={right} style={styles.rigthT} />
-                    </View>
-                  </TouchableOpacity>
-                );
-              })}
-            </View>
-          </ScrollView>
-          <LoadingModal visible={load} />
-          <AddNewCard
-            isVisible={addCardModal}
-            onClose={() => setAddCardModal(!addCardModal)}
-            navigation={navigation}
-            getDate={getDate}
-          />
+          </View>
+          <View style={styles.incomesBalance}>
+            <Text style={styles.accountText}>Incomes</Text>
+            <Text style={styles.priceText}>${earnsSpent.e}</Text>
+          </View>
+          <View style={styles.accountBalance}>
+            <Text style={styles.accountText}>Outgoing</Text>
+            <Text style={styles.priceText}>${earnsSpent.s}</Text>
+          </View>
         </View>
-      ) : (
-        <View style={{flex: 1}}>
-          <HeaderNavi
-            leftBtn={'Go To App'}
-            leftOnPress={async () => {
-              let res = await axiosInstance.get(`/get-user-details`, {});
-              await axiosInstance.post(`/create-token`);
-              dispatch({
-                type: 'SET_USERINFO',
-                payload: res.data.userData[0],
-              });
-              setVerified('');
-            }}
+        <View>
+          <FlatList
+            style={{}}
+            contentContainerStyle={{}}
+            showsVerticalScrollIndicator={false}
+            data={method}
+            renderItem={v =>
+              renderItem(v, () => {
+                return v;
+                // deletCard(v);
+              })
+            }
+            keyExtractor={item => item.id}
           />
-          <WebView source={{uri: verified}} style={{flex: 1}} />
+          <TouchableOpacity
+            style={styles.addTextView}
+            onPress={async() => {
+              if(userHorseInfo.connected_bank_account===null){
+                let res = await axiosInstance.get(`/create-verification-link`);
+                console.log(res.data);
+                return <WebView source={{ uri: res.data }} style={{ flex: 1 }} />;
+            
+              }
+              // setAddCardModal(!addCardModal);
+            }}>
+            <Text style={styles.addText}>+Add new</Text>
+          </TouchableOpacity>
         </View>
-      )}
+        <View style={styles.rescentView}>
+          <Text style={styles.recentText}>Recent Transactions</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ViewAllTransactions')}>
+            <Text style={styles.viewAllText}>View all</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.transactionView}>
+          {lastTransaction.map((item, index) => {
+            return (
+              <TouchableOpacity
+                style={styles.transactionItem}
+                onPress={() => handleClick(item.receipt_url)}>
+                <View>
+                  <Text style={styles.dateText}>
+                    {moment(item.created_at).format('DD/MM/YYYY')}
+                  </Text>
+                  <Text style={styles.transactionNumText} numberOfLines={1}>
+                    UPI/2323232323/TRASANCTION
+                  </Text>
+                  <Text style={styles.transactionNumText}>
+                    {moment(item.created_at).format('dddd')}
+                  </Text>
+                </View>
+                <View style={styles.rightView}>
+                  <Text style={styles.transactionPrice}>
+                    ${item.amount / 100}
+                  </Text>
+                  <Image source={right} style={styles.rigthT} />
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </ScrollView>
+      <LoadingModal visible={load} />
+      <AddNewCard
+        isVisible={addCardModal}
+        onClose={() => setAddCardModal(!addCardModal)}
+        navigation={navigation}
+        getDate={getDate}
+      />
     </View>
   );
 }

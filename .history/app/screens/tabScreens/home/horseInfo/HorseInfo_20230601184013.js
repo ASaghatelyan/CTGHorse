@@ -344,16 +344,16 @@ export function HorseInfo({navigation, route}) {
                 navigation.navigate('PaymentMethod', {horse: data[0]})
               }
             />
+            {route.params.boughten && (
+              <BottomBtn
+                nameL="Back"
+                nameR="Next"
+                //  onChangeL={ }
+                //  onChangeR={ }
+                styles={styles.bottomBtn}
+              />
+            )}
           </View>
-        )}
-        {route.params.boughten && (
-          <BottomBtn
-            nameL="Cancel"
-            nameR="Accept"
-            //  onChangeL={ }
-            //  onChangeR={ }
-            styles={styles.bottomBtn}
-          />
         )}
         {!route.params.boughten && more.length > 0 && (
           <Text style={styles.title}>More from {data[0].user.name}</Text>

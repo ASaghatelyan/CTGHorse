@@ -344,16 +344,17 @@ export function HorseInfo({navigation, route}) {
                 navigation.navigate('PaymentMethod', {horse: data[0]})
               }
             />
-          </View>
-        )}
-        {route.params.boughten && (
+            {route.params.boughten && (
           <BottomBtn
-            nameL="Cancel"
-            nameR="Accept"
+            nameL="Back"
+            nameR="Next"
             //  onChangeL={ }
             //  onChangeR={ }
             styles={styles.bottomBtn}
           />
+        )}
+          </View>
+          
         )}
         {!route.params.boughten && more.length > 0 && (
           <Text style={styles.title}>More from {data[0].user.name}</Text>
@@ -374,6 +375,7 @@ export function HorseInfo({navigation, route}) {
             })}
           </ScrollView>
         )}
+        
       </ScrollView>
       <LoadingModal visible={load} />
     </View>

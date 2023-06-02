@@ -155,7 +155,7 @@ export function ProfileScreen({navigation}) {
         onRightFunc={async () => {
           await AsyncStorage.removeItem('token');
           setModalVisible(!modalVisible);
-          navigation.replace('StackNavigation',{screen:'SignIn'});
+          navigation.replace(StackNavigation'SignIn');
         }}
         onLeftFunc={async () => {
           setModalVisible(!modalVisible);

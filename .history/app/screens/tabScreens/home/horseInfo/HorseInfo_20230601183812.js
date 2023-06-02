@@ -13,12 +13,7 @@ import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
 import {styles} from './style';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {
-  BottomBtn,
-  GButton,
-  HorseItemHorizontal,
-  LoadingModal,
-} from 'app/components';
+import {GButton, HorseItemHorizontal, LoadingModal} from 'app/components';
 import StarRating from 'react-native-star-rating';
 import owner from 'app/assets/img/noimg.png';
 import chat from 'app/assets/img/chat.png';
@@ -34,11 +29,11 @@ import VideoPlayer from 'react-native-video-player';
 export function HorseInfo({navigation, route}) {
   const [data, setData] = useState([]);
   const [likeDisLike, setLikeDisLike] = useState(false);
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo,setUserInfo]=useState([])
   const [more, setMore] = useState([]);
   const [starCount, setStarCount] = useState('');
   const [choosed, setChoosed] = useState('');
-  const [load, setLoad] = useState(false);
+  const [load,setLoad]=useState(false)
   const insets = useSafeAreaInsets();
   const statusBarHeight = insets.top;
   let phoneNumber = 8777111223;
@@ -54,19 +49,19 @@ export function HorseInfo({navigation, route}) {
   useEffect(() => {
     getData();
   }, []);
-
+   
   let getData = async () => {
     try {
-      setLoad(true);
+      setLoad(true)
       let res = await axiosInstance.get(`/get-horse/${route.params.id}`);
       setData(res.data[0]);
       setLikeDisLike(res.data[0][0].favorite);
       setMore(res.data[1]);
       setStarCount(res.data[0][0].user.rate);
       setChoosed(res.data[0][0].medias[0]);
-      setLoad(false);
+      setLoad(false)
     } catch (error) {
-      setLoad(false);
+      setLoad(false)
       console.log(error.response);
     }
   };
@@ -74,7 +69,7 @@ export function HorseInfo({navigation, route}) {
   let getOwnerData = async () => {
     try {
       let res = await axiosInstance.get(`/get-owner/${data?.[0]?.user.id}`);
-      navigation.navigate('OwnerProfile', {owner: res.data[0], getData});
+      navigation.navigate('OwnerProfile', {owner: res.data[0],getData});
     } catch (error) {
       console.log(error.response);
     }
@@ -95,7 +90,7 @@ export function HorseInfo({navigation, route}) {
 
   let getDate = async (id, ind) => {
     try {
-      let res = await axiosInstance.get(`/get-cards`);
+      let res = await axiosInstance.get(`/get-cards`); 
       navigation.navigate('PaymentMethod', {horse: data[0], data: res.data});
     } catch (error) {
       console.log(error.response);
@@ -131,7 +126,7 @@ export function HorseInfo({navigation, route}) {
             <Image source={back} style={styles.backIc} />
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
-          {route.params.boughten ? null : likeDisLike ? (
+          {(  route.params.boughten) ? null :likeDisLike ? (
             <TouchableOpacity
               style={styles.likeView}
               onPress={() => onLikeDisLike(0)}>
@@ -289,76 +284,76 @@ export function HorseInfo({navigation, route}) {
               })}
           </ScrollView>
         </View>
-        {!route.params.boughten && (
-          <View style={styles.ownerTop}>
-            <TouchableOpacity style={styles.ownerView} onPress={getOwnerData}>
-              <Text style={styles.ownerText}>Owner</Text>
-              <View style={styles.gFlex}>
-                <View style={styles.picView}>
-                  <Image
-                    source={
-                      data?.[0]?.user?.avatar
-                        ? {uri: data?.[0]?.user.avatar}
-                        : owner
-                    }
-                    style={styles.ownerImg}
-                  />
-                  <View>
-                    <Text style={styles.nameText}>{data?.[0]?.user.name}</Text>
-                    <Text style={styles.contactType}>
-                      Contact: Phone Number
-                    </Text>
-                    <Text style={styles.nameText}>
-                      {data?.[0]?.user.phone !== 'null' &&
-                        data?.[0]?.user.phone}
-                    </Text>
-                    <StarRating
-                      halfStarEnabled={true}
-                      disabled={true}
-                      maxStars={5}
-                      rating={starCount}
-                      selectedStar={rating => setStarCount(rating)}
-                      emptyStar={require('app/assets/img/starE.png')}
-                      fullStar={require('app/assets/img/starF.png')}
-                      halfStar={require('app/assets/img/starH.png')}
-                      starSize={20}
-                      starStyle={styles.stars}
-                    />
-                  </View>
-                </View>
+       {!route.params.boughten && <View style={styles.ownerTop}>
+          <TouchableOpacity style={styles.ownerView} onPress={getOwnerData}>
+            <Text style={styles.ownerText}>Owner</Text>
+            <View style={styles.gFlex}>
+              <View style={styles.picView}>
+                <Image
+                  source={
+                    data?.[0]?.user?.avatar
+                      ? {uri: data?.[0]?.user.avatar}
+                      : owner
+                  }
+                  style={styles.ownerImg}
+                />
                 <View>
-                  <TouchableOpacity
-                    onPress={() => Linking.openURL(`tel:${phoneNumber}`)}>
-                    <Image source={call} style={styles.callIc} />
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <Image source={chat} style={styles.chatIc} />
-                  </TouchableOpacity>
+                  <Text style={styles.nameText}>{data?.[0]?.user.name}</Text>
+                  <Text style={styles.contactType}>Contact: Phone Number</Text>
+                  <Text style={styles.nameText}>
+                    {data?.[0]?.user.phone !== 'null' && data?.[0]?.user.phone}
+                  </Text>
+                  <StarRating
+                    halfStarEnabled={true}
+                    disabled={true}
+                    maxStars={5}
+                    rating={starCount}
+                    selectedStar={rating => setStarCount(rating)}
+                    emptyStar={require('app/assets/img/starE.png')}
+                    fullStar={require('app/assets/img/starF.png')}
+                    halfStar={require('app/assets/img/starH.png')}
+                    starSize={20}
+                    starStyle={styles.stars}
+                  />
                 </View>
               </View>
-            </TouchableOpacity>
-            <GButton
-              btnName="Buy now"
-              customStyle={styles.custom}
-              handelMove={() =>
-                navigation.navigate('PaymentMethod', {horse: data[0]})
-              }
-            />
-          </View>
-        )}
-        {route.params.boughten && (
-          <BottomBtn
-            nameL="Cancel"
-            nameR="Accept"
-            //  onChangeL={ }
-            //  onChangeR={ }
-            styles={styles.bottomBtn}
+              <View>
+                <TouchableOpacity
+                  onPress={() => Linking.openURL(`tel:${phoneNumber}`)}>
+                  <Image source={call} style={styles.callIc} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={chat} style={styles.chatIc} />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <GButton
+            btnName="Buy now"
+            customStyle={styles.custom}
+            handelMove={()=>   navigation.navigate('PaymentMethod', {horse: data[0]})}
           />
-        )}
-        {!route.params.boughten && more.length > 0 && (
+        </View>}
+        { !route.params.boughten && more.length > 0 && (
           <Text style={styles.title}>More from {data[0].user.name}</Text>
         )}
-        {!route.params.boughten && more.length > 0 && (
+        { (!route.params.boughten && more.length > 0 )&& (
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.moreView}>
+            {more.map((item, index) => {
+              return (
+                <HorseItemHorizontal
+                  item={item}
+                  index={index}
+                  navigation={navigation}
+                />
+              );
+            })}
+          </ScrollView>
+        )}
+        { (!route.params.boughten && more.length > 0 )&& (
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
@@ -375,7 +370,7 @@ export function HorseInfo({navigation, route}) {
           </ScrollView>
         )}
       </ScrollView>
-      <LoadingModal visible={load} />
+      <LoadingModal visible={load}/>
     </View>
   );
 }

@@ -48,7 +48,8 @@ export function AccountInfo({navigation}) {
   let getDate = async () => {
     try {
       setLoad(true);
-      let res = await axiosInstance.get(`/get-cards`); 
+      let res = await axiosInstance.get(`/get-cards`);
+      console.log(res);
       setMethod(
         res.data.sort(function (x, y) {
           return x.default == 1 ? -1 : y.default == 1 ? 1 : 0;
@@ -187,7 +188,7 @@ export function AccountInfo({navigation}) {
       }
     });
   };
-  
+  console.log(userHorseInfo, 'ddd');
   return (
     <View style={styles.content}>
       <SafeAreaView />
@@ -252,7 +253,8 @@ export function AccountInfo({navigation}) {
                     );
 
                     setVerified(res.data);
-                  } else setAddCardModal(!addCardModal);
+                  }
+                  // setAddCardModal(!addCardModal);
                 }}>
                 <Text style={styles.addText}>+Add new</Text>
               </TouchableOpacity>
@@ -306,12 +308,12 @@ export function AccountInfo({navigation}) {
             leftBtn={'Go To App'}
             leftOnPress={async () => {
               let res = await axiosInstance.get(`/get-user-details`, {});
-              await axiosInstance.post(`/create-token`);
+              console.log(res,'res');
               dispatch({
                 type: 'SET_USERINFO',
                 payload: res.data.userData[0],
               });
-              setVerified('');
+              setVerified('')
             }}
           />
           <WebView source={{uri: verified}} style={{flex: 1}} />

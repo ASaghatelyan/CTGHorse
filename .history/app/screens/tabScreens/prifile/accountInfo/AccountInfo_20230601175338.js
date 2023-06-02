@@ -15,7 +15,7 @@ import added from 'app/assets/img/addCard.png';
 import {styles} from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AddNewCard, HeaderNavi, LoadingModal} from 'app/components';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import axiosInstance from 'app/networking/api';
 import {PaymentIcon} from 'react-native-payment-icons';
 import {SwipeListView} from 'react-native-swipe-list-view';
@@ -28,7 +28,6 @@ import WebView from 'react-native-webview';
 
 export function AccountInfo({navigation}) {
   let userHorseInfo = useSelector(state => state.userInfo);
-  let dispatch = useDispatch();
   const [earnsSpent, setEarnsSpent] = useState({e: 0, s: 0});
   const [verified, setVerified] = useState('');
   const [method, setMethod] = useState([]);
@@ -48,7 +47,8 @@ export function AccountInfo({navigation}) {
   let getDate = async () => {
     try {
       setLoad(true);
-      let res = await axiosInstance.get(`/get-cards`); 
+      let res = await axiosInstance.get(`/get-cards`);
+      console.log(res);
       setMethod(
         res.data.sort(function (x, y) {
           return x.default == 1 ? -1 : y.default == 1 ? 1 : 0;
@@ -187,7 +187,7 @@ export function AccountInfo({navigation}) {
       }
     });
   };
-  
+  console.log(userHorseInfo, 'ddd');
   return (
     <View style={styles.content}>
       <SafeAreaView />
@@ -252,7 +252,8 @@ export function AccountInfo({navigation}) {
                     );
 
                     setVerified(res.data);
-                  } else setAddCardModal(!addCardModal);
+                  }
+                  // setAddCardModal(!addCardModal);
                 }}>
                 <Text style={styles.addText}>+Add new</Text>
               </TouchableOpacity>
@@ -306,12 +307,11 @@ export function AccountInfo({navigation}) {
             leftBtn={'Go To App'}
             leftOnPress={async () => {
               let res = await axiosInstance.get(`/get-user-details`, {});
-              await axiosInstance.post(`/create-token`);
               dispatch({
                 type: 'SET_USERINFO',
                 payload: res.data.userData[0],
               });
-              setVerified('');
+              setVerified('')
             }}
           />
           <WebView source={{uri: verified}} style={{flex: 1}} />

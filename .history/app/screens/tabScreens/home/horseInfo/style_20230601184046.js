@@ -236,8 +236,6 @@ export const styles = StyleSheet.create({
   infoItem: {
     flexDirection: 'row',
   },
- bottomBtn:{
-  paddingHorizontal:GlobalWidth(16)
- }
+  styles={styles.bottomBtn}
 
 });
