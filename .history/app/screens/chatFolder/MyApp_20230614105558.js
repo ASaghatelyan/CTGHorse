@@ -1,0 +1,39 @@
+import React from 'react';
+import Login from './Login';
+import { View,Text } from 'react-native';
+import ChatClient from './ChatClient';
+
+
+export default class MyApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmitName = this.onSubmitName.bind(this);
+        this.state = {
+          hasName: false
+        };
+      }
+
+  onSubmitName(e) {
+    const name = e.nativeEvent.text;
+    this.setState({
+      name,
+      hasName: true
+    });
+  }
+  pusher = Pusher.getInstance();
+
+  componentDidMount() {
+    // Runs after the first render() lifecycle
+  }
+  render() {
+    if (this.state.hasName) {
+      return (
+        <ChatClient name={ this.state.name } />
+      );
+    } else {
+      return (
+        <Login onSubmitName={ this.handleSubmitName } />
+      );
+    }
+  }
+}

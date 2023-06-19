@@ -1,0 +1,8 @@
+{
+  "appId": "1617064",
+  "key": "821da38abbc9954afe90",
+  "secret": "e95fe2ccb6ff2dc04837",
+  "cluster": "ap2",
+  "encrypted": true,
+  "restServer": "http://192.168.77.230:8000"
+}
