@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(20),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: '#E9A13A',
     marginBottom: GlobalHeight(8),
     marginTop: GlobalHeight(40),
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   subTitle: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(16),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: 'rgba(25, 12, 4, 0.64)',
     marginBottom: GlobalHeight(16),
   },
@@ -41,13 +41,13 @@ export const styles = StyleSheet.create({
   leftText: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(16),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: 'rgba(25, 12, 4, 0.64)',
   },
   rightText: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(16),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: '#E9A13A',
   },
   infoItemTotal: {
@@ -64,25 +64,25 @@ export const styles = StyleSheet.create({
   leftTextPay: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(20),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: '#190C04',
   },
   leftTextTotal: {
     fontFamily: 'SFProText-Regular',
     fontSize: GlobalWidth(16),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: 'rgba(25, 12, 4, 0.64)',
   },
   rightTextPay: {
     fontFamily: 'SFProText-SemiBold',
     fontSize: GlobalWidth(20),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: '#E9A13A',
   },
   rightTextTotal: {
     fontFamily: 'SFProText-Regular',
     fontSize: GlobalWidth(16),
-    lineHeight: GlobalHeight(22),
+    // lineHeight: GlobalHeight(22),
     color: '#E9A13A',
   },
   closeView: {

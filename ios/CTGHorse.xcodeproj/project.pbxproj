@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		261D805940A44231B68A1CF4 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A431DCB0CB74D6C8B7CED40 /* SFProText-Medium.ttf */; };
+		2756A4AA2A4B26BC0065264A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2756A4A92A4B26BC0065264A /* GoogleService-Info.plist */; };
 		3444BB61B2B14A6CA8C36E8B /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF7500F5B54B5BB4B6FF96 /* SFProText-Light.ttf */; };
 		36E8744B780E43A482C666F0 /* SFProText-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1E26378F22A4705877184C1 /* SFProText-LightItalic.ttf */; };
 		49E569ECFBAA4D5DBCCB2694 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E823D83AAE4BC597F69DC4 /* SFProText-Semibold.ttf */; };
@@ -53,6 +54,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CTGHorse/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CTGHorse/main.m; sourceTree = "<group>"; };
 		26F98CF1A18746C7B86CD5E1 /* SFProText-RegularItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-RegularItalic.ttf"; path = "../app/assets/fonts/SFProText/SFProText-RegularItalic.ttf"; sourceTree = "<group>"; };
+		2756A4A82A4B1B070065264A /* CTGHorse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CTGHorse.entitlements; path = CTGHorse/CTGHorse.entitlements; sourceTree = "<group>"; };
+		2756A4A92A4B26BC0065264A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		277CD10FD0224B0D94825644 /* SFProText-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-SemiboldItalic.ttf"; path = "../app/assets/fonts/SFProText/SFProText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		2839E4A3C9974738902088D6 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../app/assets/fonts/SFProText/SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		28E823D83AAE4BC597F69DC4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Semibold.ttf"; path = "../app/assets/fonts/SFProText/SFProText-Semibold.ttf"; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		13B07FAE1A68108700A75B9A /* CTGHorse */ = {
 			isa = PBXGroup;
 			children = (
+				2756A4A92A4B26BC0065264A /* GoogleService-Info.plist */,
+				2756A4A82A4B1B070065264A /* CTGHorse.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -287,6 +292,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2756A4AA2A4B26BC0065264A /* GoogleService-Info.plist in Resources */,
 				4FAB822DEDEA4A09A7CF9F01 /* SFProText-Bold.ttf in Resources */,
 				945EAA87C2F1410B85D4128D /* SFProText-BoldItalic.ttf in Resources */,
 				0132EF80549740DFADCD3E4E /* SFProText-Heavy.ttf in Resources */,
@@ -519,8 +525,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4RL372M85;
+				CODE_SIGN_ENTITLEMENTS = CTGHorse/CTGHorse.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = G9WC7B2Q6H;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CTGHorse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -528,16 +537,21 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CTGHorsee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CTGHorseRNative;
 				PRODUCT_NAME = CTGHorse;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -548,23 +562,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4RL372M85;
+				CODE_SIGN_ENTITLEMENTS = CTGHorse/CTGHorse.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = G9WC7B2Q6H;
 				INFOPLIST_FILE = CTGHorse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CTGHorsee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CTGHorseRNative;
 				PRODUCT_NAME = CTGHorse;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
