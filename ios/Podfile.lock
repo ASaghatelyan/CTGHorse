@@ -350,6 +350,8 @@ PODS:
     - React-Core
   - react-native-blur (4.3.1):
     - React-Core
+  - react-native-create-thumbnail (1.6.4):
+    - React-Core
   - react-native-date-picker (4.2.13):
     - React-Core
   - react-native-document-picker (8.2.0):
@@ -587,6 +589,7 @@ DEPENDENCIES:
   - react-native-biometrics (from `../node_modules/react-native-biometrics`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
+  - react-native-create-thumbnail (from `../node_modules/react-native-create-thumbnail`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
@@ -709,6 +712,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-blob-util"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
+  react-native-create-thumbnail:
+    :path: "../node_modules/react-native-create-thumbnail"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
   react-native-document-picker:
@@ -842,6 +847,7 @@ SPEC CHECKSUMS:
   react-native-biometrics: 352e5a794bfffc46a0c86725ea7dc62deb085bdc
   react-native-blob-util: 99f4d79189252f597fe0d810c57a3733b1b1dea6
   react-native-blur: 52e2902df618ace97b3554aeb7f6a2d7ca3b5e9b
+  react-native-create-thumbnail: e022bcdcba8a0b4529a50d3fa1a832ec921be39d
   react-native-date-picker: 04e866ba4e7857f83abd504ad42e787f0f02ae00
   react-native-document-picker: 495c444c0c773c6e83a5d91165890ecb1c0a399a
   react-native-image-picker: 60f4246eb5bb7187fc15638a8c1f13abd3820695

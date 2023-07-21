@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		261D805940A44231B68A1CF4 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A431DCB0CB74D6C8B7CED40 /* SFProText-Medium.ttf */; };
 		2756A4AA2A4B26BC0065264A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2756A4A92A4B26BC0065264A /* GoogleService-Info.plist */; };
+		27834A8B2A6A6104003EE42E /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 27834A8A2A6A6104003EE42E /* appstore.png */; };
 		3444BB61B2B14A6CA8C36E8B /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF7500F5B54B5BB4B6FF96 /* SFProText-Light.ttf */; };
 		36E8744B780E43A482C666F0 /* SFProText-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1E26378F22A4705877184C1 /* SFProText-LightItalic.ttf */; };
 		49E569ECFBAA4D5DBCCB2694 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E823D83AAE4BC597F69DC4 /* SFProText-Semibold.ttf */; };
@@ -57,6 +58,7 @@
 		2756A4A82A4B1B070065264A /* CTGHorse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CTGHorse.entitlements; path = CTGHorse/CTGHorse.entitlements; sourceTree = "<group>"; };
 		2756A4A92A4B26BC0065264A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		277CD10FD0224B0D94825644 /* SFProText-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-SemiboldItalic.ttf"; path = "../app/assets/fonts/SFProText/SFProText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		27834A8A2A6A6104003EE42E /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		2839E4A3C9974738902088D6 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../app/assets/fonts/SFProText/SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		28E823D83AAE4BC597F69DC4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Semibold.ttf"; path = "../app/assets/fonts/SFProText/SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		34134AC13C7B4544B168E94E /* SFProText-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Heavy.ttf"; path = "../app/assets/fonts/SFProText/SFProText-Heavy.ttf"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				27834A8A2A6A6104003EE42E /* appstore.png */,
 			);
 			name = CTGHorse;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				7092A18B44534601AB9D2746 /* SFProText-MediumItalic.ttf in Resources */,
 				6653D79179E74AE48D9FD582 /* SFProText-Regular.ttf in Resources */,
 				9F1A4C5F3A0B4FA5BEC4BC14 /* SFProText-RegularItalic.ttf in Resources */,
+				27834A8B2A6A6104003EE42E /* appstore.png in Resources */,
 				49E569ECFBAA4D5DBCCB2694 /* SFProText-Semibold.ttf in Resources */,
 				EE4A6D71ECA7408B92C04C2F /* SFProText-SemiboldItalic.ttf in Resources */,
 			);
@@ -528,7 +532,7 @@
 				CODE_SIGN_ENTITLEMENTS = CTGHorse/CTGHorse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = G9WC7B2Q6H;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CTGHorse/Info.plist;
@@ -565,7 +569,7 @@
 				CODE_SIGN_ENTITLEMENTS = CTGHorse/CTGHorse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = G9WC7B2Q6H;
 				INFOPLIST_FILE = CTGHorse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
